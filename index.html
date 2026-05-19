@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Falò Cafè — Menù</title>
+<title>Falò Cafè — Menu</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -419,6 +419,8 @@
     flex-shrink: 0;
   }
 
+
+  /* ── LANGUAGE TOGGLE ── */
   /* ── ANIMATIONS ── */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(24px); }
@@ -452,6 +454,34 @@
     gap: 0 40px;
   }
   @media (max-width: 560px) { .columns { grid-template-columns: 1fr; } }
+
+  /* ── LANG TOGGLE ── */
+  .lang-toggle {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    border: 1px solid rgba(201,169,110,0.45);
+    border-radius: 20px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .lang-btn {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    padding: 5px 11px;
+    background: transparent;
+    color: rgba(201,169,110,0.5);
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+  }
+  .lang-btn.active {
+    background: var(--gold);
+    color: var(--espresso);
+    font-weight: 600;
+  }
+  .lang-btn:hover:not(.active) { color: var(--gold); }
 </style>
 </head>
 <body>
@@ -459,7 +489,7 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-ornament">✦ Dal mattino alla sera ✦</div>
-  <h1 class="hero-title">Falò Cafè<em>Menù</em></h1>
+  <h1 class="hero-title">Falò Cafè<em data-it="Menù" data-en="Menu">Menù</em></h1>
   <p class="hero-sub">Caffetteria · Bibite · Vini · Birre · Cocktail · Cucina</p>
   <div class="hero-line"></div>
 </section>
@@ -467,14 +497,18 @@
 <!-- NAV -->
 <nav id="main-nav">
   <div class="nav-inner">
-    <a class="nav-item" href="#caffetteria">Caffetteria</a>
-    <a class="nav-item" href="#bibite">Bibite</a>
-    <a class="nav-item" href="#vini">Vini</a>
-    <a class="nav-item" href="#birre">Birre</a>
-    <a class="nav-item" href="#cocktails">Cocktails</a>
-    <a class="nav-item" href="#liquori">Liquori</a>
-    <a class="nav-item" href="#spirits">Spirits</a>
-    <a class="nav-item" href="#gastronomia">Cucina</a>
+    <a class="nav-item" href="#caffetteria"><span data-it="Caffetteria" data-en="Coffee Bar">Caffetteria</span></a>
+    <a class="nav-item" href="#bibite"><span data-it="Bibite" data-en="Drinks">Bibite</span></a>
+    <a class="nav-item" href="#vini"><span data-it="Vini" data-en="Wines">Vini</span></a>
+    <a class="nav-item" href="#birre"><span data-it="Birre" data-en="Beers">Birre</span></a>
+    <a class="nav-item" href="#cocktails"><span data-it="Cocktails" data-en="Cocktails">Cocktails</span></a>
+    <a class="nav-item" href="#liquori"><span data-it="Liquori" data-en="Liqueurs">Liquori</span></a>
+    <a class="nav-item" href="#spirits"><span data-it="Spirits" data-en="Spirits">Spirits</span></a>
+    <a class="nav-item" href="#gastronomia"><span data-it="Cucina" data-en="Kitchen">Cucina</span></a>
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="btn-it" onclick="setLang('it')">IT</button>
+      <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+    </div>
   </div>
 </nav>
 
@@ -482,23 +516,23 @@
 <section class="section" id="caffetteria">
   <div class="section-header">
     <span class="section-label">01</span>
-    <h2 class="section-title">Caffe<em>tteria</em></h2>
+    <h2 class="section-title"><span data-it="Caffe" data-en="Cof">Caffe</span><em data-it="tteria" data-en="fee Bar">tteria</em></h2>
   </div>
   <div class="columns">
     <div>
-      <div class="item"><span class="item-name">Caffè <small>Espresso</small></span><span class="item-dots"></span><span class="item-price">1,40</span></div>
+      <div class="item"><span class="item-name">Caffè <small data-it="Espresso" data-en="Espresso">Espresso</small></span><span class="item-dots"></span><span class="item-price">1,40</span></div>
       <div class="item"><span class="item-name">Caffè Macchiato</span><span class="item-dots"></span><span class="item-price">1,40</span></div>
       <div class="item"><span class="item-name">Caffè Macchiato Freddo</span><span class="item-dots"></span><span class="item-price">1,40</span></div>
       <div class="item"><span class="item-name">Caffè Decaffeinato</span><span class="item-dots"></span><span class="item-price">1,50</span></div>
-      <div class="item"><span class="item-name">Caffè Marocchino <small>con cioccolato</small></span><span class="item-dots"></span><span class="item-price">2,00</span></div>
+      <div class="item"><span class="item-name">Caffè Marocchino <small data-it="con cioccolato" data-en="with chocolate">con cioccolato</small></span><span class="item-dots"></span><span class="item-price">2,00</span></div>
       <div class="item"><span class="item-name">Marocchino con Nutella</span><span class="item-dots"></span><span class="item-price">2,50</span></div>
-      <div class="item"><span class="item-name">Caffè con Panna <small>piccolo</small></span><span class="item-dots"></span><span class="item-price">2,00</span></div>
-      <div class="item"><span class="item-name">Caffè con Panna <small>grande</small></span><span class="item-dots"></span><span class="item-price">2,50</span></div>
-      <div class="item"><span class="item-name">Caffè Viennese <small>piccolo</small></span><span class="item-dots"></span><span class="item-price">2,50</span></div>
-      <div class="item"><span class="item-name">Caffè Viennese <small>grande</small></span><span class="item-dots"></span><span class="item-price">3,00</span></div>
+      <div class="item"><span class="item-name">Caffè con Panna <small data-it="piccolo" data-en="small">piccolo</small></span><span class="item-dots"></span><span class="item-price">2,00</span></div>
+      <div class="item"><span class="item-name">Caffè con Panna <small data-it="grande" data-en="large">grande</small></span><span class="item-dots"></span><span class="item-price">2,50</span></div>
+      <div class="item"><span class="item-name">Caffè Viennese <small data-it="piccolo" data-en="small">piccolo</small></span><span class="item-dots"></span><span class="item-price">2,50</span></div>
+      <div class="item"><span class="item-name">Caffè Viennese <small data-it="grande" data-en="large">grande</small></span><span class="item-dots"></span><span class="item-price">3,00</span></div>
       <div class="item"><span class="item-name">Caffè Latte</span><span class="item-dots"></span><span class="item-price">2,00</span></div>
       <div class="item"><span class="item-name">Caffè Shakerato</span><span class="item-dots"></span><span class="item-price">2,50</span></div>
-      <div class="item"><span class="item-name">Caffè Shakerato Corretto <small>con Grappa</small></span><span class="item-dots"></span><span class="item-price">3,00</span></div>
+      <div class="item"><span class="item-name">Caffè Shakerato Corretto <small data-it="con Grappa" data-en="with Grappa">con Grappa</small></span><span class="item-dots"></span><span class="item-price">3,00</span></div>
     </div>
     <div>
       <div class="item"><span class="item-name">Cappuccino</span><span class="item-dots"></span><span class="item-price">1,80</span></div>
@@ -507,27 +541,27 @@
       <div class="item"><span class="item-name">Ginseng</span><span class="item-dots"></span><span class="item-price">1,80</span></div>
       <div class="item"><span class="item-name">Ginseng Tazza Grande</span><span class="item-dots"></span><span class="item-price">2,50</span></div>
       <div class="item"><span class="item-name">Ginseng Amaro</span><span class="item-dots"></span><span class="item-price">1,80</span></div>
-      <div class="item"><span class="item-name">Latte Bianco</span><span class="item-dots"></span><span class="item-price">1,50</span></div>
-      <div class="item"><span class="item-name">Latte Macchiato</span><span class="item-dots"></span><span class="item-price">2,00</span></div>
-      <div class="item"><span class="item-name">Mocaccino <small>cappuccino, panna e cioccolato</small></span><span class="item-dots"></span><span class="item-price">3,00</span></div>
-      <div class="item"><span class="item-name">Orzo</span><span class="item-dots"></span><span class="item-price">1,80</span></div>
-      <div class="item"><span class="item-name">Cioccolata Calda</span><span class="item-dots"></span><span class="item-price">4,00</span></div>
-      <div class="item"><span class="item-name">Cioccolata con Panna</span><span class="item-dots"></span><span class="item-price">4,50</span></div>
-      <div class="item"><span class="item-name">Thé Caldo</span><span class="item-dots"></span><span class="item-price">3,00</span></div>
-      <div class="item"><span class="item-name">Tisane / Camomilla</span><span class="item-dots"></span><span class="item-price">3,00</span></div>
+      <div class="item"><span class="item-name" data-it="Latte Bianco" data-en="Warm Milk">Latte Bianco</span><span class="item-dots"></span><span class="item-price">1,50</span></div>
+      <div class="item"><span class="item-name" data-it="Latte Macchiato" data-en="Latte Macchiato">Latte Macchiato</span><span class="item-dots"></span><span class="item-price">2,00</span></div>
+      <div class="item"><span class="item-name">Mocaccino <small data-it="cappuccino, panna e cioccolato" data-en="cappuccino, cream &amp; chocolate">cappuccino, panna e cioccolato</small></span><span class="item-dots"></span><span class="item-price">3,00</span></div>
+      <div class="item"><span class="item-name" data-it="Orzo" data-en="Barley Coffee">Orzo</span><span class="item-dots"></span><span class="item-price">1,80</span></div>
+      <div class="item"><span class="item-name" data-it="Cioccolata Calda" data-en="Hot Chocolate">Cioccolata Calda</span><span class="item-dots"></span><span class="item-price">4,00</span></div>
+      <div class="item"><span class="item-name" data-it="Cioccolata con Panna" data-en="Hot Chocolate with Cream">Cioccolata con Panna</span><span class="item-dots"></span><span class="item-price">4,50</span></div>
+      <div class="item"><span class="item-name" data-it="Thé Caldo" data-en="Hot Tea">Thé Caldo</span><span class="item-dots"></span><span class="item-price">3,00</span></div>
+      <div class="item"><span class="item-name" data-it="Tisane / Camomilla" data-en="Herbal Tea / Chamomile">Tisane / Camomilla</span><span class="item-dots"></span><span class="item-price">3,00</span></div>
     </div>
   </div>
 
   <div style="margin-top:40px;">
-    <div class="subsection-title">Dolci & Pasticceria</div>
+    <div class="subsection-title" data-it="Dolci & Pasticceria" data-en="Pastries &amp; Sweets">Dolci & Pasticceria</div>
     <div class="columns">
       <div>
-        <div class="item"><span class="item-name">Paste</span><span class="item-dots"></span><span class="item-price">1,50</span></div>
-        <div class="item"><span class="item-name">Paste Vegane</span><span class="item-dots"></span><span class="item-price">1,50</span></div>
+        <div class="item"><span class="item-name" data-it="Paste" data-en="Pastries">Paste</span><span class="item-dots"></span><span class="item-price">1,50</span></div>
+        <div class="item"><span class="item-name" data-it="Paste Vegane" data-en="Vegan Pastries">Paste Vegane</span><span class="item-dots"></span><span class="item-price">1,50</span></div>
       </div>
       <div>
-        <div class="item"><span class="item-name">Fetta di Torta</span><span class="item-dots"></span><span class="item-price">3,00</span></div>
-        <div class="item"><span class="item-name">Crostata <small>al taglio</small></span><span class="item-dots"></span><span class="item-price">3,00</span></div>
+        <div class="item"><span class="item-name" data-it="Fetta di Torta" data-en="Slice of Cake">Fetta di Torta</span><span class="item-dots"></span><span class="item-price">3,00</span></div>
+        <div class="item"><span class="item-name" data-it="Crostata" data-en="Fruit Tart">Crostata <small data-it="al taglio" data-en="by the slice">al taglio</small></span><span class="item-dots"></span><span class="item-price">3,00</span></div>
       </div>
     </div>
   </div>
@@ -537,22 +571,22 @@
 <section class="section" id="bibite">
   <div class="section-header">
     <span class="section-label">02</span>
-    <h2 class="section-title">Bi<em>bite</em></h2>
+    <h2 class="section-title"><span data-it="Bi" data-en="Dr">Bi</span><em data-it="bite" data-en="inks">bite</em></h2>
   </div>
 
   <div class="subsection">
-    <div class="subsection-title">Acque & Freschi</div>
+    <div class="subsection-title" data-it="Acque & Freschi" data-en="Water &amp; Fresh Drinks">Acque & Freschi</div>
     <div class="columns">
       <div>
-        <div class="item"><span class="item-name">Acqua Gassata <small>bicchiere</small></span><span class="item-dots"></span><span class="item-price">0,20</span></div>
-        <div class="item"><span class="item-name">Acqua Naturale <small>bicchiere</small></span><span class="item-dots"></span><span class="item-price">0,20</span></div>
-        <div class="item"><span class="item-name">Acqua Gassata <small>½ litro</small></span><span class="item-dots"></span><span class="item-price">1,50</span></div>
-        <div class="item"><span class="item-name">Acqua Naturale <small>½ litro</small></span><span class="item-dots"></span><span class="item-price">1,50</span></div>
-        <div class="item"><span class="item-name">Spremuta</span><span class="item-dots"></span><span class="item-price">4,00</span></div>
-        <div class="item"><span class="item-name">Spremuta di Melograno</span><span class="item-dots"></span><span class="item-price">5,00</span></div>
-        <div class="item"><span class="item-name">Estratto di Frutta</span><span class="item-dots"></span><span class="item-price">5,00</span></div>
-        <div class="item"><span class="item-name">Frullato</span><span class="item-dots"></span><span class="item-price">5,00</span></div>
-        <div class="item"><span class="item-name">Succhi di Frutta</span><span class="item-dots"></span><span class="item-price">3,00</span></div>
+        <div class="item"><span class="item-name" data-it="Acqua Gassata" data-en="Sparkling Water">Acqua Gassata <small data-it="bicchiere" data-en="glass">bicchiere</small></span><span class="item-dots"></span><span class="item-price">0,20</span></div>
+        <div class="item"><span class="item-name" data-it="Acqua Naturale" data-en="Still Water">Acqua Naturale <small data-it="bicchiere" data-en="glass">bicchiere</small></span><span class="item-dots"></span><span class="item-price">0,20</span></div>
+        <div class="item"><span class="item-name" data-it="Acqua Gassata" data-en="Sparkling Water">Acqua Gassata <small data-it="½ litro" data-en="½ litre">½ litro</small></span><span class="item-dots"></span><span class="item-price">1,50</span></div>
+        <div class="item"><span class="item-name" data-it="Acqua Naturale" data-en="Still Water">Acqua Naturale <small data-it="½ litro" data-en="½ litre">½ litro</small></span><span class="item-dots"></span><span class="item-price">1,50</span></div>
+        <div class="item"><span class="item-name" data-it="Spremuta" data-en="Fresh Orange Juice">Spremuta</span><span class="item-dots"></span><span class="item-price">4,00</span></div>
+        <div class="item"><span class="item-name" data-it="Spremuta di Melograno" data-en="Pomegranate Juice">Spremuta di Melograno</span><span class="item-dots"></span><span class="item-price">5,00</span></div>
+        <div class="item"><span class="item-name" data-it="Estratto di Frutta" data-en="Fresh Fruit Extract">Estratto di Frutta</span><span class="item-dots"></span><span class="item-price">5,00</span></div>
+        <div class="item"><span class="item-name" data-it="Frullato" data-en="Fruit Smoothie">Frullato</span><span class="item-dots"></span><span class="item-price">5,00</span></div>
+        <div class="item"><span class="item-name" data-it="Succhi di Frutta" data-en="Fruit Juices">Succhi di Frutta</span><span class="item-dots"></span><span class="item-price">3,00</span></div>
       </div>
       <div>
         <div class="item"><span class="item-name">Coca Cola</span><span class="item-dots"></span><span class="item-price">3,50</span></div>
@@ -585,7 +619,7 @@
   </div>
 
   <div class="subsection">
-    <div class="subsection-title">Aperitivi</div>
+    <div class="subsection-title"><span data-it="Aperitivi" data-en="Aperitifs">Aperitivi</span></div>
     <div class="columns">
       <div>
         <div class="item"><span class="item-name">Aperol</span><span class="item-dots"></span><span class="item-price">4,00</span></div>
@@ -613,13 +647,13 @@
 <section class="section" id="vini">
   <div class="section-header">
     <span class="section-label">03</span>
-    <h2 class="section-title">Car<em>ta dei Vini</em></h2>
+    <h2 class="section-title"><span data-it="Car" data-en="Wi">Car</span><em data-it="ta dei Vini" data-en="ne List">ta dei Vini</em></h2>
   </div>
 
   <!-- CANNONAU -->
   <div class="subsection">
-    <div class="subsection-title">Cannonau</div>
-    <div class="item"><span class="item-name">Mammuntone</span><span class="item-dots"></span><span class="wine-prices"><div class="wine-badge"><span>bott.</span><span class="badge-price">30,00</span></div><span class="wine-sep">·</span><div class="wine-badge"><span>bic.</span><span class="badge-price">5,00</span></div></span></div>
+    <div class="subsection-title" data-it="Cannonau" data-en="Cannonau">Cannonau</div>
+    <div class="item"><span class="item-name">Mammuntone</span><span class="item-dots"></span><span class="wine-prices"><div class="wine-badge"><span data-it="bott." data-en="btl.">bott.</span><span class="badge-price">30,00</span></div><span class="wine-sep">·</span><div class="wine-badge"><span data-it="bic." data-en="gls.">bic.</span><span class="badge-price">5,00</span></div></span></div>
     <div class="item"><span class="item-name">Dolianova</span><span class="item-dots"></span><span class="wine-prices"><div class="wine-badge"><span>bott.</span><span class="badge-price">30,00</span></div><span class="wine-sep">·</span><div class="wine-badge"><span>bic.</span><span class="badge-price">5,00</span></div></span></div>
     <div class="item"><span class="item-name">Arestidu</span><span class="item-dots"></span><span class="wine-prices"><div class="wine-badge"><span>bott.</span><span class="badge-price">30,00</span></div><span class="wine-sep">·</span><div class="wine-badge"><span>bic.</span><span class="badge-price">5,00</span></div></span></div>
     <div class="item"><span class="item-name">Sartiu</span><span class="item-dots"></span><span class="wine-prices"><div class="wine-badge"><span>bott.</span><span class="badge-price">30,00</span></div><span class="wine-sep">·</span><div class="wine-badge"><span>bic.</span><span class="badge-price">5,00</span></div></span></div>
@@ -628,7 +662,7 @@
 
   <!-- CAGNULARI -->
   <div class="subsection">
-    <div class="subsection-title">Cagnulari</div>
+    <div class="subsection-title" data-it="Cagnulari" data-en="Cagnulari">Cagnulari</div>
     <div class="item"><span class="item-name">Santa Maria la Palma</span><span class="item-dots"></span><span class="wine-prices"><div class="wine-badge"><span>bott.</span><span class="badge-price">30,00</span></div><span class="wine-sep">·</span><div class="wine-badge"><span>bic.</span><span class="badge-price">5,00</span></div></span></div>
     <div class="item"><span class="item-name">Chessa</span><span class="item-dots"></span><span class="wine-prices"><div class="wine-badge"><span>bott.</span><span class="badge-price">30,00</span></div><span class="wine-sep">·</span><div class="wine-badge"><span>bic.</span><span class="badge-price">5,00</span></div></span></div>
     <div class="item"><span class="item-name">Delogu</span><span class="item-dots"></span><span class="wine-prices"><div class="wine-badge"><span>bott.</span><span class="badge-price">30,00</span></div><span class="wine-sep">·</span><div class="wine-badge"><span>bic.</span><span class="badge-price">5,00</span></div></span></div>
@@ -636,7 +670,7 @@
 
   <!-- CARIGNANO -->
   <div class="subsection">
-    <div class="subsection-title">Carignano</div>
+    <div class="subsection-title" data-it="Carignano" data-en="Carignano">Carignano</div>
     <div class="item"><span class="item-name">Grotta Rossa</span><span class="item-dots"></span><span class="wine-prices"><div class="wine-badge"><span>bott.</span><span class="badge-price">25,00</span></div><span class="wine-sep">·</span><div class="wine-badge"><span>bic.</span><span class="badge-price">4,00</span></div></span></div>
     <div class="item"><span class="item-name">Rocca Rubia</span><span class="item-dots"></span><span class="wine-prices"><div class="wine-badge"><span>bott.</span><span class="badge-price">30,00</span></div><span class="wine-sep">·</span><div class="wine-badge"><span>bic.</span><span class="badge-price">5,00</span></div></span></div>
     <div class="item"><span class="item-name">Cardanera</span><span class="item-dots"></span><span class="wine-prices"><div class="wine-badge"><span>bott.</span><span class="badge-price">25,00</span></div><span class="wine-sep">·</span><div class="wine-badge"><span>bic.</span><span class="badge-price">4,00</span></div></span></div>
@@ -647,7 +681,7 @@
 
   <!-- VINI BIANCHI -->
   <div class="subsection">
-    <div class="subsection-title">Vini Bianchi</div>
+    <div class="subsection-title"><span data-it="Vini Bianchi" data-en="White Wines">Vini Bianchi</span></div>
     <div class="item"><span class="item-name">Chardonnay</span><span class="item-dots"></span><span class="wine-prices"><div class="wine-badge"><span>bott.</span><span class="badge-price">25,00</span></div><span class="wine-sep">·</span><div class="wine-badge"><span>bic.</span><span class="badge-price">4,00</span></div></span></div>
     <div class="item"><span class="item-name">Pinot Grigio</span><span class="item-dots"></span><span class="wine-prices"><div class="wine-badge"><span>bott.</span><span class="badge-price">25,00</span></div><span class="wine-sep">·</span><div class="wine-badge"><span>bic.</span><span class="badge-price">4,00</span></div></span></div>
     <div class="item"><span class="item-name">Müller Thurgau</span><span class="item-dots"></span><span class="wine-prices"><div class="wine-badge"><span>bott.</span><span class="badge-price">25,00</span></div><span class="wine-sep">·</span><div class="wine-badge"><span>bic.</span><span class="badge-price">4,00</span></div></span></div>
@@ -660,14 +694,14 @@
     <div class="item"><span class="item-name">Masedu</span><span class="item-dots"></span><span class="wine-prices"><div class="wine-badge"><span>bott.</span><span class="badge-price">20,00</span></div><span class="wine-sep">·</span><div class="wine-badge"><span>bic.</span><span class="badge-price">4,00</span></div></span></div>
     <div class="item"><span class="item-name">Iselis</span><span class="item-dots"></span><span class="wine-prices"><div class="wine-badge"><span>bott.</span><span class="badge-price">25,00</span></div><span class="wine-sep">·</span><div class="wine-badge"><span>bic.</span><span class="badge-price">4,00</span></div></span></div>
     <div class="item"><span class="item-name">Ruinas</span><span class="item-dots"></span><span class="wine-prices"><div class="wine-badge"><span>bott.</span><span class="badge-price">40,00</span></div><span class="wine-sep">·</span><div class="wine-badge"><span>bic.</span><span class="badge-price">7,00</span></div></span></div>
-    <div class="item"><span class="item-name">Canayli <small>Vermentino Gallura</small></span><span class="item-dots"></span><span class="wine-prices"><div class="wine-badge"><span>bott.</span><span class="badge-price">30,00</span></div><span class="wine-sep">·</span><div class="wine-badge"><span>bic.</span><span class="badge-price">5,00</span></div></span></div>
+    <div class="item"><span class="item-name">Canayli <small data-it="Vermentino Gallura" data-en="Vermentino Gallura">Vermentino Gallura</small></span><span class="item-dots"></span><span class="wine-prices"><div class="wine-badge"><span>bott.</span><span class="badge-price">30,00</span></div><span class="wine-sep">·</span><div class="wine-badge"><span>bic.</span><span class="badge-price">5,00</span></div></span></div>
   </div>
 
   <!-- SPUMANTI & CHAMPAGNE -->
   <div class="subsection">
-    <div class="subsection-title">Spumanti & Champagne</div>
-    <div class="item"><span class="item-name">Akenta <small>Vermentino Frizzante</small></span><span class="item-dots"></span><span class="wine-prices"><div class="wine-badge"><span>bott.</span><span class="badge-price">25,00</span></div><span class="wine-sep">·</span><div class="wine-badge"><span>bic.</span><span class="badge-price">4,00</span></div></span></div>
-    <div class="item"><span class="item-name">Bellavista Gran Cuvée <small>Champagne</small></span><span class="item-dots"></span><span class="wine-prices"><div class="wine-badge"><span>bott.</span><span class="badge-price">55,00</span></div><span class="wine-sep">·</span><div class="wine-badge"><span>bic.</span><span class="badge-price">8,00</span></div></span></div>
+    <div class="subsection-title" data-it="Spumanti & Champagne" data-en="Sparkling &amp; Champagne">Spumanti & Champagne</div>
+    <div class="item"><span class="item-name">Akenta <small data-it="Vermentino Frizzante" data-en="Sparkling Vermentino">Vermentino Frizzante</small></span><span class="item-dots"></span><span class="wine-prices"><div class="wine-badge"><span>bott.</span><span class="badge-price">25,00</span></div><span class="wine-sep">·</span><div class="wine-badge"><span>bic.</span><span class="badge-price">4,00</span></div></span></div>
+    <div class="item"><span class="item-name">Bellavista Gran Cuvée <small data-it="Champagne" data-en="Champagne">Champagne</small></span><span class="item-dots"></span><span class="wine-prices"><div class="wine-badge"><span>bott.</span><span class="badge-price">55,00</span></div><span class="wine-sep">·</span><div class="wine-badge"><span>bic.</span><span class="badge-price">8,00</span></div></span></div>
     <div class="item"><span class="item-name">Brut Torbato</span><span class="item-dots"></span><span class="wine-prices"><div class="wine-badge"><span>bott.</span><span class="badge-price">25,00</span></div><span class="wine-sep">·</span><div class="wine-badge"><span>bic.</span><span class="badge-price">4,00</span></div></span></div>
     <div class="item"><span class="item-name">Brachetto</span><span class="item-dots"></span><span class="wine-prices"><div class="wine-badge"><span>bott.</span><span class="badge-price">25,00</span></div><span class="wine-sep">·</span><div class="wine-badge"><span>bic.</span><span class="badge-price">4,00</span></div></span></div>
     <div class="item"><span class="item-name">Moscato</span><span class="item-dots"></span><span class="wine-prices"><div class="wine-badge"><span>bott.</span><span class="badge-price">25,00</span></div><span class="wine-sep">·</span><div class="wine-badge"><span>bic.</span><span class="badge-price">4,00</span></div></span></div>
@@ -681,11 +715,11 @@
 <section class="section" id="birre">
   <div class="section-header">
     <span class="section-label">04</span>
-    <h2 class="section-title">Bir<em>re</em></h2>
+    <h2 class="section-title"><span data-it="Bir" data-en="Be">Bir</span><em data-it="re" data-en="ers">re</em></h2>
   </div>
 
   <div class="subsection">
-    <div class="subsection-title">Alla Spina</div>
+    <div class="subsection-title"><span data-it="Alla Spina" data-en="Draught">Alla Spina</span></div>
     <table class="beer-grid">
       <thead>
         <tr>
@@ -707,47 +741,47 @@
   </div>
 
   <div class="subsection">
-    <div class="subsection-title">In Bottiglia</div>
+    <div class="subsection-title"><span data-it="In Bottiglia" data-en="Bottled">In Bottiglia</span></div>
     <div class="columns">
       <div>
-        <div class="item"><span class="item-name">Beck's <small>0,33 l</small></span><span class="item-dots"></span><span class="item-price">4,00</span></div>
-        <div class="item"><span class="item-name">Bud <small>0,33 l</small></span><span class="item-dots"></span><span class="item-price">4,00</span></div>
-        <div class="item"><span class="item-name">Ceres <small>0,33 l</small></span><span class="item-dots"></span><span class="item-price">4,00</span></div>
+        <div class="item"><span class="item-name">Beck's <small data-it="0,33 l" data-en="0.33 l">0,33 l</small></span><span class="item-dots"></span><span class="item-price">4,00</span></div>
+        <div class="item"><span class="item-name">Bud <small data-it="0,33 l" data-en="0.33 l">0,33 l</small></span><span class="item-dots"></span><span class="item-price">4,00</span></div>
+        <div class="item"><span class="item-name">Ceres <small data-it="0,33 l" data-en="0.33 l">0,33 l</small></span><span class="item-dots"></span><span class="item-price">4,00</span></div>
         <div class="item"><span class="item-name">Corona <small>0,35 l</small></span><span class="item-dots"></span><span class="item-price">4,50</span></div>
       </div>
       <div>
         <div class="item"><span class="item-name">Daura <small>senza glutine 0,33 l</small></span><span class="item-dots"></span><span class="item-price">4,00</span></div>
-        <div class="item"><span class="item-name">Heineken Import <small>0,33 l</small></span><span class="item-dots"></span><span class="item-price">4,00</span></div>
-        <div class="item"><span class="item-name">Heineken Analcolica <small>0,33 l</small></span><span class="item-dots"></span><span class="item-price">4,00</span></div>
-        <div class="item"><span class="item-name">Schofferhofer Weizen <small>0,50 l</small></span><span class="item-dots"></span><span class="item-price">5,00</span></div>
+        <div class="item"><span class="item-name">Heineken Import <small data-it="0,33 l" data-en="0.33 l">0,33 l</small></span><span class="item-dots"></span><span class="item-price">4,00</span></div>
+        <div class="item"><span class="item-name">Heineken Analcolica <small data-it="0,33 l" data-en="0.33 l">0,33 l</small></span><span class="item-dots"></span><span class="item-price">4,00</span></div>
+        <div class="item"><span class="item-name">Schofferhofer Weizen <small data-it="0,50 l" data-en="0.50 l">0,50 l</small></span><span class="item-dots"></span><span class="item-price">5,00</span></div>
       </div>
     </div>
   </div>
 
   <div class="subsection">
-    <div class="subsection-title">Birre Speciali</div>
+    <div class="subsection-title"><span data-it="Birre Speciali" data-en="Craft &amp; Special Beers">Birre Speciali</span></div>
     <div class="columns">
       <div>
-        <div class="item"><span class="item-name">Baladin Rock n'Roll <small>0,33 l</small></span><span class="item-dots"></span><span class="item-price">5,00</span></div>
-        <div class="item"><span class="item-name">Baladin Nazionale <small>0,33 l</small></span><span class="item-dots"></span><span class="item-price">5,00</span></div>
-        <div class="item"><span class="item-name">Baladin Isac <small>0,33 l</small></span><span class="item-dots"></span><span class="item-price">5,00</span></div>
-        <div class="item"><span class="item-name">Baladin Wayan <small>0,33 l</small></span><span class="item-dots"></span><span class="item-price">5,00</span></div>
-        <div class="item"><span class="item-name">Baladin L'IPA <small>0,33 l</small></span><span class="item-dots"></span><span class="item-price">5,00</span></div>
-        <div class="item"><span class="item-name">Baladin Nazionale s/glutine <small>0,33 l</small></span><span class="item-dots"></span><span class="item-price">5,00</span></div>
-        <div class="item"><span class="item-name">P3 Reef <small>0,33 l</small></span><span class="item-dots"></span><span class="item-price">5,00</span></div>
-        <div class="item"><span class="item-name">P3 Speed <small>0,33 l</small></span><span class="item-dots"></span><span class="item-price">5,00</span></div>
-        <div class="item"><span class="item-name">P3 50 Nodi <small>0,33 l</small></span><span class="item-dots"></span><span class="item-price">5,00</span></div>
-        <div class="item"><span class="item-name">P3 Jordi <small>0,33 l</small></span><span class="item-dots"></span><span class="item-price">5,00</span></div>
-        <div class="item"><span class="item-name">P3 Iarda <small>0,33 l</small></span><span class="item-dots"></span><span class="item-price">5,00</span></div>
-        <div class="item"><span class="item-name">P3 100 Nodi <small>0,33 l</small></span><span class="item-dots"></span><span class="item-price">5,00</span></div>
+        <div class="item"><span class="item-name">Baladin Rock n'Roll <small data-it="0,33 l" data-en="0.33 l">0,33 l</small></span><span class="item-dots"></span><span class="item-price">5,00</span></div>
+        <div class="item"><span class="item-name">Baladin Nazionale <small data-it="0,33 l" data-en="0.33 l">0,33 l</small></span><span class="item-dots"></span><span class="item-price">5,00</span></div>
+        <div class="item"><span class="item-name">Baladin Isac <small data-it="0,33 l" data-en="0.33 l">0,33 l</small></span><span class="item-dots"></span><span class="item-price">5,00</span></div>
+        <div class="item"><span class="item-name">Baladin Wayan <small data-it="0,33 l" data-en="0.33 l">0,33 l</small></span><span class="item-dots"></span><span class="item-price">5,00</span></div>
+        <div class="item"><span class="item-name">Baladin L'IPA <small data-it="0,33 l" data-en="0.33 l">0,33 l</small></span><span class="item-dots"></span><span class="item-price">5,00</span></div>
+        <div class="item"><span class="item-name">Baladin Nazionale s/glutine <small data-it="0,33 l" data-en="0.33 l">0,33 l</small></span><span class="item-dots"></span><span class="item-price">5,00</span></div>
+        <div class="item"><span class="item-name">P3 Reef <small data-it="0,33 l" data-en="0.33 l">0,33 l</small></span><span class="item-dots"></span><span class="item-price">5,00</span></div>
+        <div class="item"><span class="item-name">P3 Speed <small data-it="0,33 l" data-en="0.33 l">0,33 l</small></span><span class="item-dots"></span><span class="item-price">5,00</span></div>
+        <div class="item"><span class="item-name">P3 50 Nodi <small data-it="0,33 l" data-en="0.33 l">0,33 l</small></span><span class="item-dots"></span><span class="item-price">5,00</span></div>
+        <div class="item"><span class="item-name">P3 Jordi <small data-it="0,33 l" data-en="0.33 l">0,33 l</small></span><span class="item-dots"></span><span class="item-price">5,00</span></div>
+        <div class="item"><span class="item-name">P3 Iarda <small data-it="0,33 l" data-en="0.33 l">0,33 l</small></span><span class="item-dots"></span><span class="item-price">5,00</span></div>
+        <div class="item"><span class="item-name">P3 100 Nodi <small data-it="0,33 l" data-en="0.33 l">0,33 l</small></span><span class="item-dots"></span><span class="item-price">5,00</span></div>
       </div>
       <div>
-        <div class="item"><span class="item-name">Marduk American IPA <small>0,50 l</small></span><span class="item-dots"></span><span class="item-price">7,00</span></div>
-        <div class="item"><span class="item-name">Marduk Black IPA <small>0,50 l</small></span><span class="item-dots"></span><span class="item-price">7,00</span></div>
-        <div class="item"><span class="item-name">Marduk Munich <small>0,50 l</small></span><span class="item-dots"></span><span class="item-price">7,00</span></div>
-        <div class="item"><span class="item-name">Marduk Pale Ale <small>0,50 l</small></span><span class="item-dots"></span><span class="item-price">7,00</span></div>
-        <div class="item"><span class="item-name">Marduk Pilsner <small>0,50 l</small></span><span class="item-dots"></span><span class="item-price">7,00</span></div>
-        <div class="item"><span class="item-name">Schofferhofer Weizen <small>0,50 l</small></span><span class="item-dots"></span><span class="item-price">5,00</span></div>
+        <div class="item"><span class="item-name">Marduk American IPA <small data-it="0,50 l" data-en="0.50 l">0,50 l</small></span><span class="item-dots"></span><span class="item-price">7,00</span></div>
+        <div class="item"><span class="item-name">Marduk Black IPA <small data-it="0,50 l" data-en="0.50 l">0,50 l</small></span><span class="item-dots"></span><span class="item-price">7,00</span></div>
+        <div class="item"><span class="item-name">Marduk Munich <small data-it="0,50 l" data-en="0.50 l">0,50 l</small></span><span class="item-dots"></span><span class="item-price">7,00</span></div>
+        <div class="item"><span class="item-name">Marduk Pale Ale <small data-it="0,50 l" data-en="0.50 l">0,50 l</small></span><span class="item-dots"></span><span class="item-price">7,00</span></div>
+        <div class="item"><span class="item-name">Marduk Pilsner <small data-it="0,50 l" data-en="0.50 l">0,50 l</small></span><span class="item-dots"></span><span class="item-price">7,00</span></div>
+        <div class="item"><span class="item-name">Schofferhofer Weizen <small data-it="0,50 l" data-en="0.50 l">0,50 l</small></span><span class="item-dots"></span><span class="item-price">5,00</span></div>
       </div>
     </div>
   </div>
@@ -757,11 +791,11 @@
 <section class="section" id="cocktails">
   <div class="section-header">
     <span class="section-label">05</span>
-    <h2 class="section-title">Cock<em>tails</em></h2>
+    <h2 class="section-title"><span data-it="Cock" data-en="Cock">Cock</span><em data-it="tails" data-en="tails">tails</em></h2>
   </div>
 
   <div class="subsection">
-    <div class="subsection-title">Classici — 7,00 €</div>
+    <div class="subsection-title"><span data-it="Classici — 7,00 €" data-en="Classics — €7.00">Classici — 7,00 €</span></div>
     <div class="columns">
       <div>
         <div class="item"><span class="item-name">Alexander</span></div>
@@ -823,7 +857,7 @@
   </div>
 
   <div class="subsection">
-    <div class="subsection-title">Premium — 8,00 €</div>
+    <div class="subsection-title"><span data-it="Premium — 8,00 €" data-en="Premium — €8.00">Premium — 8,00 €</span></div>
     <div class="columns">
       <div>
         <div class="item"><span class="item-name">Analcolico alla Frutta</span></div>
@@ -844,7 +878,7 @@
   </div>
 
   <div class="subsection">
-    <div class="subsection-title">Shots</div>
+    <div class="subsection-title"><span data-it="Shots" data-en="Shots">Shots</span></div>
     <div class="columns">
       <div>
         <div class="item"><span class="item-name">Kamikaze</span><span class="item-dots"></span><span class="item-price">3,00</span></div>
@@ -871,11 +905,11 @@
 <section class="section" id="liquori">
   <div class="section-header">
     <span class="section-label">06</span>
-    <h2 class="section-title">Li<em>quori</em></h2>
+    <h2 class="section-title"><span data-it="Li" data-en="Li">Li</span><em data-it="quori" data-en="queurs">quori</em></h2>
   </div>
 
   <div class="subsection">
-    <div class="subsection-title">Amari & Liquori — 4,00 €</div>
+    <div class="subsection-title" data-it="Amari & Liquori — 4,00 €" data-en="Digestifs &amp; Liqueurs — 4,00 €">Amari & Liquori — 4,00 €</div>
     <div class="columns">
       <div>
         <div class="item"><span class="item-name">Amaro del Capo</span></div>
@@ -884,16 +918,16 @@
         <div class="item"><span class="item-name">Baileys Cioccolato</span></div>
         <div class="item"><span class="item-name">Brancamenta</span></div>
         <div class="item"><span class="item-name">Cynar</span></div>
-        <div class="item"><span class="item-name">Crema di Limone</span></div>
+        <div class="item"><span class="item-name" data-it="Crema di Limone" data-en="Lemon Cream Liqueur">Crema di Limone</span></div>
         <div class="item"><span class="item-name">Disaronno</span></div>
         <div class="item"><span class="item-name">Fernet Branca</span></div>
       </div>
       <div>
         <div class="item"><span class="item-name">Limoncino</span></div>
-        <div class="item"><span class="item-name">Liquirizia</span></div>
-        <div class="item"><span class="item-name">Mirto Rosso</span></div>
-        <div class="item"><span class="item-name">Mirto Bianco</span></div>
-        <div class="item"><span class="item-name">Mirto Amaro</span></div>
+        <div class="item"><span class="item-name" data-it="Liquirizia" data-en="Liquorice">Liquirizia</span></div>
+        <div class="item"><span class="item-name" data-it="Mirto Rosso" data-en="Red Myrtle">Mirto Rosso</span></div>
+        <div class="item"><span class="item-name" data-it="Mirto Bianco" data-en="White Myrtle">Mirto Bianco</span></div>
+        <div class="item"><span class="item-name" data-it="Mirto Amaro" data-en="Bitter Myrtle">Mirto Amaro</span></div>
         <div class="item"><span class="item-name">Montenegro</span></div>
         <div class="item"><span class="item-name">Sambuca</span></div>
         <div class="item"><span class="item-name">Jefferson</span></div>
@@ -903,7 +937,7 @@
   </div>
 
   <div class="subsection">
-    <div class="subsection-title">Grappe Poli — 4,50 €</div>
+    <div class="subsection-title"><span data-it="Grappe Poli — 4,50 €" data-en="Poli Grappa — €4.50">Grappe Poli — 4,50 €</span></div>
     <div class="columns">
       <div>
         <div class="item"><span class="item-name">Elegante</span></div>
@@ -920,7 +954,7 @@
   </div>
 
   <div class="subsection">
-    <div class="subsection-title">Vodka</div>
+    <div class="subsection-title" data-it="Vodka" data-en="Vodka">Vodka</div>
     <div class="columns">
       <div>
         <div class="item"><span class="item-name">Smirnoff</span><span class="item-dots"></span><span class="item-price">4,00</span></div>
@@ -940,11 +974,11 @@
 <section class="section" id="spirits">
   <div class="section-header">
     <span class="section-label">07</span>
-    <h2 class="section-title">Spi<em>rits</em></h2>
+    <h2 class="section-title"><span data-it="Spi" data-en="Spi">Spi</span><em data-it="rits" data-en="rits">rits</em></h2>
   </div>
 
   <div class="subsection">
-    <div class="subsection-title">Gin</div>
+    <div class="subsection-title" data-it="Gin" data-en="Gin">Gin</div>
     <div class="columns">
       <div>
         <div class="item"><span class="item-name">Gordon's</span><span class="item-dots"></span><span class="item-price">7,00</span></div>
@@ -968,7 +1002,7 @@
   </div>
 
   <div class="subsection">
-    <div class="subsection-title">Rum</div>
+    <div class="subsection-title" data-it="Rum" data-en="Rum">Rum</div>
     <div class="columns">
       <div>
         <div class="item"><span class="item-name">Pampero</span><span class="item-dots"></span><span class="item-price">4,00</span></div>
@@ -992,7 +1026,7 @@
   </div>
 
   <div class="subsection">
-    <div class="subsection-title">Whiskey & Bourbon</div>
+    <div class="subsection-title" data-it="Whiskey & Bourbon" data-en="Whiskey &amp; Bourbon">Whiskey & Bourbon</div>
     <div class="columns">
       <div>
         <div class="item"><span class="item-name">Canadian</span><span class="item-dots"></span><span class="item-price">4,00</span></div>
@@ -1029,7 +1063,7 @@
   </div>
 
   <div class="subsection">
-    <div class="subsection-title">Tequila · Cognac · Brandy</div>
+    <div class="subsection-title" data-it="Tequila · Cognac · Brandy" data-en="Tequila · Cognac · Brandy">Tequila · Cognac · Brandy</div>
     <div class="columns">
       <div>
         <div class="item"><span class="item-name">Sauza</span><span class="item-dots"></span><span class="item-price">4,00</span></div>
@@ -1053,7 +1087,7 @@
 <section class="section" id="gastronomia">
   <div class="section-header">
     <span class="section-label">08</span>
-    <h2 class="section-title">Cu<em>cina</em></h2>
+    <h2 class="section-title"><span data-it="Cu" data-en="Ki">Cu</span><em data-it="cina" data-en="tchen">cina</em></h2>
   </div>
   <div class="orario-badge">Lunedì – Venerdì &nbsp;·&nbsp; 13:00 – 15:00</div>
 
@@ -1070,32 +1104,32 @@
   </div>
 
   <div class="subsection">
-    <div class="subsection-title">Piatti del Giorno</div>
+    <div class="subsection-title" data-it="Piatti del Giorno" data-en="Daily Plates">Piatti del Giorno</div>
     <div class="food-grid">
-      <div class="food-card"><span class="food-card-name">Cavallo + Contorno</span><span class="food-card-price">12,00</span></div>
+      <div class="food-card"><span class="food-card-name">Cavallo + <span data-it="Contorno" data-en="Side Dish">Contorno</span></span><span class="food-card-price">12,00</span></div>
       <div class="food-card"><span class="food-card-name">Pollo + Contorno</span><span class="food-card-price">12,00</span></div>
-      <div class="food-card"><span class="food-card-name">Cotoletta di Pollo + Contorno</span><span class="food-card-price">14,00</span></div>
-      <div class="food-card"><span class="food-card-name">Hamburger + Contorno</span><span class="food-card-price">12,00</span></div>
+      <div class="food-card"><span class="food-card-name" data-it="Cotoletta di Pollo + Contorno" data-en="Chicken Cutlet + Side">Cotoletta di Pollo + Contorno</span><span class="food-card-price">14,00</span></div>
+      <div class="food-card"><span class="food-card-name" data-it="Hamburger + Contorno" data-en="Burger + Side">Hamburger + Contorno</span><span class="food-card-price">12,00</span></div>
       <div class="food-card"><span class="food-card-name">Polpette + Contorno</span><span class="food-card-price">12,00</span></div>
-      <div class="food-card"><span class="food-card-name">Costata di Manzo + Contorno</span><span class="food-card-price">15,00</span></div>
-      <div class="food-card"><span class="food-card-name">Costata di Cavallo + Contorno</span><span class="food-card-price">15,00</span></div>
-      <div class="food-card"><span class="food-card-name">Branzino ai Ferri + Contorno</span><span class="food-card-price">14,00</span></div>
-      <div class="food-card"><span class="food-card-name">Arrosticini di Pecora* + Contorno</span><span class="food-card-price">14,00</span></div>
+      <div class="food-card"><span class="food-card-name" data-it="Costata di Manzo + Contorno" data-en="Beef Ribeye + Side">Costata di Manzo + Contorno</span><span class="food-card-price">15,00</span></div>
+      <div class="food-card"><span class="food-card-name" data-it="Costata di Cavallo + Contorno" data-en="Horse Ribeye + Side">Costata di Cavallo + Contorno</span><span class="food-card-price">15,00</span></div>
+      <div class="food-card"><span class="food-card-name" data-it="Branzino ai Ferri + Contorno" data-en="Grilled Sea Bass + Side">Branzino ai Ferri + Contorno</span><span class="food-card-price">14,00</span></div>
+      <div class="food-card"><span class="food-card-name" data-it="Arrosticini di Pecora* + Contorno" data-en="Lamb Skewers* + Side">Arrosticini di Pecora* + Contorno</span><span class="food-card-price">14,00</span></div>
     </div>
   </div>
 
   <div class="subsection">
-    <div class="subsection-title">Insalate & Contorni</div>
+    <div class="subsection-title" data-it="Insalate & Contorni" data-en="Salads &amp; Sides">Insalate & Contorni</div>
     <div class="food-grid">
-      <div class="food-card"><span class="food-card-name">Insalatona<small>Verde, radicchio, pomodoro, tonno, rucola, grana</small></span><span class="food-card-price">8,00</span></div>
-      <div class="food-card"><span class="food-card-name">Insalatona Speciale<small>Verde, radicchio, pomodoro, rucola, pollo grigliato e mozzarella</small></span><span class="food-card-price">12,00</span></div>
+      <div class="food-card"><span class="food-card-name" data-it="Insalatona" data-en="Mixed Salad">Insalatona<small><span data-it="Verde, radicchio, pomodoro, tonno, rucola, grana" data-en="Greens, radicchio, tomato, tuna, rocket, grana">Verde, radicchio, pomodoro, tonno, rucola, grana</span></small></span><span class="food-card-price">8,00</span></div>
+      <div class="food-card"><span class="food-card-name" data-it="Insalatona Speciale" data-en="Special Mixed Salad">Insalatona Speciale<small><span data-it="Verde, radicchio, pomodoro, rucola, pollo grigliato e mozzarella" data-en="Greens, radicchio, tomato, rocket, grilled chicken and mozzarella">Verde, radicchio, pomodoro, rucola, pollo grigliato e mozzarella</span></small></span><span class="food-card-price">12,00</span></div>
       <div class="food-card"><span class="food-card-name">Insalata Mista</span><span class="food-card-price">4,00</span></div>
       <div class="food-card"><span class="food-card-name">Patatine Fritte*</span><span class="food-card-price">4,00</span></div>
       <div class="food-card"><span class="food-card-name">Uova alla Piastra</span><span class="food-card-price">4,00</span></div>
-      <div class="food-card"><span class="food-card-name">Formaggio Fuso</span><span class="food-card-price">5,00</span></div>
-      <div class="food-card"><span class="food-card-name">Caprese<small>Pomodoro, mozzarella e basilico</small></span><span class="food-card-price">8,00</span></div>
-      <div class="food-card"><span class="food-card-name">Caprese + Prosciutto Crudo</span><span class="food-card-price">12,00</span></div>
-      <div class="food-card"><span class="food-card-name">Tagliere Salumi & Formaggi<small>Minimo 2 persone</small></span><span class="food-card-price">16,00</span></div>
+      <div class="food-card"><span class="food-card-name" data-it="Formaggio Fuso" data-en="Melted Cheese">Formaggio Fuso</span><span class="food-card-price">5,00</span></div>
+      <div class="food-card"><span class="food-card-name">Caprese<small><span data-it="Pomodoro, mozzarella e basilico" data-en="Tomato, mozzarella and basil">Pomodoro, mozzarella e basilico</span></small></span><span class="food-card-price">8,00</span></div>
+      <div class="food-card"><span class="food-card-name" data-it="Caprese + Prosciutto Crudo" data-en="Caprese + Cured Ham">Caprese + Prosciutto Crudo</span><span class="food-card-price">12,00</span></div>
+      <div class="food-card"><span class="food-card-name">Tagliere Salumi & Formaggi<small><span data-it="Minimo 2 persone" data-en="Minimum 2 people">Minimo 2 persone</span></small></span><span class="food-card-price">16,00</span></div>
     </div>
   </div>
 
@@ -1107,7 +1141,7 @@
     </div>
   </div>
 
-  <p class="note">* Il prodotto potrebbe essere surgelato</p>
+  <p class="note"><span data-it="* Il prodotto potrebbe essere surgelato" data-en="* Product may be frozen">* Il prodotto potrebbe essere surgelato</span></p>
 </section>
 
 <footer>
@@ -1120,7 +1154,7 @@
     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
     @falocafeportotorres
   </a>
-  <p style="margin-top:28px;">Prezzi in euro · IVA inclusa</p>
+  <p style="margin-top:28px;"><span data-it="Prezzi in euro · IVA inclusa" data-en="Prices in euros · VAT included">Prezzi in euro · IVA inclusa</span></p>
 </footer>
 
 <script>
@@ -1142,6 +1176,50 @@
   }, { rootMargin: '-40% 0px -55% 0px' });
 
   sections.forEach(s => observer.observe(s));
+</script>
+
+<script>
+  function setLang(lang) {
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-it][data-en]').forEach(el => {
+      el.textContent = el.getAttribute('data-' + lang);
+    });
+    // section title split spans
+    document.querySelectorAll('.section-title [data-it]').forEach(el => {
+      el.textContent = el.getAttribute('data-' + lang);
+    });
+    document.getElementById('btnIT').classList.toggle('active', lang === 'it');
+    document.getElementById('btnEN').classList.toggle('active', lang === 'en');
+    localStorage.setItem('lang', lang);
+  }
+
+  // Restore saved lang on load
+  (function() {
+    const saved = localStorage.getItem('lang');
+    if (saved && saved !== 'it') setLang(saved);
+  })();
+</script>
+
+<script>
+function setLang(lang) {
+  // Toggle active button
+  document.getElementById('btn-it').classList.toggle('active', lang === 'it');
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+
+  // Update all elements with data-it / data-en
+  document.querySelectorAll('[data-it][data-en]').forEach(el => {
+    el.textContent = el.getAttribute('data-' + lang);
+  });
+
+  // Save preference
+  localStorage.setItem('lang', lang);
+}
+
+// On load, apply saved lang
+(function() {
+  const saved = localStorage.getItem('lang') || 'it';
+  if (saved === 'en') setLang('en');
+})();
 </script>
 </body>
 </html>
